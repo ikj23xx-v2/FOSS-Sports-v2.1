@@ -1,0 +1,6 @@
+{
+  "name": "FOSS Sports - Apple-Grade Live Tracker & APK Builder",
+  "description": "High-fidelity sports tracking application inspired by Apple Sports, powered by real-time ESPN APIs with live scores, situations, news, and one-click Android APK export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

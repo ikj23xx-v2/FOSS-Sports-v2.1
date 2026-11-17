@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@700;800;900&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap');
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Outfit', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-data: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    /* Default: OLED Pitch Black */
+    --theme-bg: #000000;
+    --theme-card: #161618;
+    --theme-card-hover: #1E1E22;
+    --theme-border: #2A2A2E;
+    --theme-text: #FFFFFF;
+    --theme-text-muted: #8E8E93;
+    --theme-text-dim: #636366;
+    --theme-dock-bg: rgba(22, 22, 24, 0.88);
+    --theme-accent: #FFFFFF;
+    --theme-accent-text: #000000;
+    --theme-radius: 20px;
+  }
+
+  /* Midnight Navy */
+  [data-theme="midnight"] {
+    --theme-bg: #070B14;
+    --theme-card: #0E1626;
+    --theme-card-hover: #142036;
+    --theme-border: #1B2B48;
+    --theme-text: #FFFFFF;
+    --theme-text-muted: #8899B5;
+    --theme-text-dim: #5C6E8C;
+    --theme-dock-bg: rgba(14, 22, 38, 0.88);
+    --theme-accent: #38BDF8;
+    --theme-accent-text: #070B14;
+  }
+
+  /* Carbon Charcoal */
+  [data-theme="carbon"] {
+    --theme-bg: #121214;
+    --theme-card: #1A1A1E;
+    --theme-card-hover: #232328;
+    --theme-border: #2D2D34;
+    --theme-text: #F4F4F6;
+    --theme-text-muted: #9A9AA4;
+    --theme-text-dim: #6E6E78;
+    --theme-dock-bg: rgba(26, 26, 30, 0.88);
+    --theme-accent: #E4E4E7;
+    --theme-accent-text: #121214;
+  }
+
+  /* Stadium Turf Green */
+  [data-theme="stadium"] {
+    --theme-bg: #07130A;
+    --theme-card: #0D2214;
+    --theme-card-hover: #132F1D;
+    --theme-border: #1B3F27;
+    --theme-text: #FFFFFF;
+    --theme-text-muted: #87B896;
+    --theme-text-dim: #558362;
+    --theme-dock-bg: rgba(13, 34, 20, 0.88);
+    --theme-accent: #30D158;
+    --theme-accent-text: #07130A;
+  }
+
+  /* Scoreboard Retro Amber */
+  [data-theme="retro"] {
+    --theme-bg: #0C0A06;
+    --theme-card: #18140C;
+    --theme-card-hover: #241E13;
+    --theme-border: #322A1A;
+    --theme-text: #FFF9E6;
+    --theme-text-muted: #B8A882;
+    --theme-text-dim: #7C7053;
+    --theme-dock-bg: rgba(24, 20, 12, 0.88);
+    --theme-accent: #FFD60A;
+    --theme-accent-text: #0C0A06;
+  }
+
+  /* Apple Light (Daylight Stadium) */
+  [data-theme="light"] {
+    --theme-bg: #F2F2F7;
+    --theme-card: #FFFFFF;
+    --theme-card-hover: #F8F8FA;
+    --theme-border: #E5E5EA;
+    --theme-text: #000000;
+    --theme-text-muted: #6E6E73;
+    --theme-text-dim: #8E8E93;
+    --theme-dock-bg: rgba(255, 255, 255, 0.90);
+    --theme-accent: #000000;
+    --theme-accent-text: #FFFFFF;
+  }
+
+  /* Dynamic Team Color theme */
+  [data-theme="team"] {
+    --theme-bg: #000000;
+    --theme-card: #141416;
+    --theme-card-hover: #1C1C20;
+    --theme-border: #282830;
+    --theme-text: #FFFFFF;
+    --theme-text-muted: #8E8E93;
+    --theme-text-dim: #636366;
+    --theme-dock-bg: rgba(20, 20, 22, 0.88);
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+    letter-spacing: -0.015em;
+    background-color: var(--theme-bg);
+    color: var(--theme-text);
+    -webkit-tap-highlight-color: transparent;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Plus Jakarta Sans', var(--font-display);
+  }
+
+  .score-font, .font-mono, .tabular-nums {
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+/* Custom styled theme containers */
+.theme-canvas {
+  background-color: var(--theme-bg);
+  color: var(--theme-text);
+}
+
+.theme-card {
+  background-color: var(--theme-card);
+  border-color: var(--theme-border);
+  border-radius: var(--theme-radius);
+}
+
+.theme-card:hover {
+  background-color: var(--theme-card-hover);
+}
+
+.theme-dock {
+  background-color: var(--theme-dock-bg);
+  border-color: var(--theme-border);
+}
+
+.theme-pill-active {
+  background-color: var(--theme-accent);
+  color: var(--theme-accent-text);
+}
+
+.theme-border {
+  border-color: var(--theme-border);
+}
+
+.theme-text-muted {
+  color: var(--theme-text-muted);
+}
+
+.theme-text-dim {
+  color: var(--theme-text-dim);
+}
+
+/* Radius variations */
+[data-radius="sharp"] {
+  --theme-radius: 10px;
+}
+[data-radius="standard"] {
+  --theme-radius: 20px;
+}
+[data-radius="round"] {
+  --theme-radius: 28px;
+}
+
+/* Hide scrollbar for clean Apple Sports carousels */
+.no-scrollbar::-webkit-scrollbar,
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar,
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 12s linear infinite;
+}
+
+@keyframes iosAppOpen {
+  0% {
+    transform: scale(0.85) translateY(20px);
+    opacity: 0;
+    border-radius: 40px;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+    border-radius: 24px;
+  }
+}
+
+.animate-ios-open {
+  animation: iosAppOpen 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.ios-spring {
+  transition: transform 300ms cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 300ms ease;
+}
+
